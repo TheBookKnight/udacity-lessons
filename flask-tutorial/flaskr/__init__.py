@@ -1,6 +1,9 @@
+# this file tells Python to treat the flaskr directory as a package
 import os
 
 from flask import Flask
+
+# application factory function
 
 
 def create_app(test_config=None):
@@ -28,5 +31,9 @@ def create_app(test_config=None):
     @app.route('/hello')
     def hello():
         return 'Hello, World!'
+
+    # imports db to initialize
+    from . import db
+    db.init_app(app)
 
     return app
