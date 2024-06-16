@@ -23,10 +23,9 @@ def test_run():
                         )
 
     # Join the two dataframes using DataFrame.join()
-    df1 = df1.join(dfSPY)
-
-    # Drop NaN values (which are weekends and holidays defined by NSYE)
-    df1 = df1.dropna()
+    # we use an inner join process to drop NaN values because
+    # the NaN values are weekends and holidays defined by NSYE
+    df1 = df1.join(dfSPY, how='inner')
     print(df1)
 
 
