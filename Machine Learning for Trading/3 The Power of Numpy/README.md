@@ -2,10 +2,10 @@
 
 ## Script to practice using Numpy
 
-To see how certain Numpy functions work, use the _practice-numpy.py_.
+To see how certain Numpy functions work, use the _numpy-ops.py_.
 
 ### How to run
 
 1. `cd` into this subdirectory
 2. Run `pipenv install <LIBRARY>` to install script dependencies
-3. Run `pipenv run python practice-numpy.py` to run script
+3. Run `pipenv run python numpy-ops.py` to run script
