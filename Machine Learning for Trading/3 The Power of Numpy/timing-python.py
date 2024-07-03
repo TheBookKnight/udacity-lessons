@@ -37,6 +37,14 @@ def access_and_modify_array_elem():
     print("Modified a column:\n", a)
 
 
+def access_array_with_array():
+    a = np.random.rand(5)
+    print("Original:\n", a)
+    # accessing using list of indices
+    indices = np.array([1, 1, 2, 3])
+    print("Indexed values:\n", a[indices])
+
+
 def test_run():
     t1 = time()
     print("ML4T")
@@ -59,6 +67,7 @@ def test_run():
     print("NumPy mean is", speedup, "times faster than manual for loops.")
 
     access_and_modify_array_elem()
+    access_array_with_array()
 
 
 if __name__ == "__main__":
