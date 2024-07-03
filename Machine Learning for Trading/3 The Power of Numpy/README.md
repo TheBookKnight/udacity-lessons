@@ -4,7 +4,7 @@
 
 To see how certain Numpy functions work, use the _numpy-ops.py_.
 
-### How to run
+### How to run (with example)
 
 1. `cd` into this subdirectory
 2. Run `pipenv install <LIBRARY>` to install script dependencies
