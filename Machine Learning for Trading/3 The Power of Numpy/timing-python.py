@@ -25,6 +25,18 @@ def numpy_mean(arr):
     return np.mean(arr)
 
 
+def access_and_modify_array_elem():
+    a = np.random.rand(5, 4)
+    print("Indexing the array:\n")
+    print("Array:\n", a)
+    # Slicing
+    # Note: Slice n:m:t specifies a range that starts at n, and stops before m, in t steps
+    print("Slicing:\n", a[:, 0:3:2])  # will select columns 0, 2 for every row
+    # Modify
+    a[:, 3] = [1, 2, 3, 4, 5]
+    print("Modified a column:\n", a)
+
+
 def test_run():
     t1 = time()
     print("ML4T")
@@ -45,6 +57,8 @@ def test_run():
     # Compute speedup
     speedup = t_manual / t_numpy
     print("NumPy mean is", speedup, "times faster than manual for loops.")
+
+    access_and_modify_array_elem()
 
 
 if __name__ == "__main__":
