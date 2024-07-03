@@ -45,6 +45,18 @@ def access_array_with_array():
     print("Indexed values:\n", a[indices])
 
 
+def mask_array():
+    a = np.array([(20, 25, 10, 23, 26, 32, 10, 5, 0),
+                  (0, 2, 50, 20, 0, 1, 28, 5, 0)])
+    print("Original:\n", a)
+    # calc mean
+    mean = a.mean()
+    print("Mean:\n", mean)
+    # masking values less than mean
+    a[a < mean] = mean
+    print("Masked:\n", a)
+
+
 def test_run():
     t1 = time()
     print("ML4T")
@@ -68,6 +80,7 @@ def test_run():
 
     access_and_modify_array_elem()
     access_array_with_array()
+    mask_array()
 
 
 if __name__ == "__main__":
