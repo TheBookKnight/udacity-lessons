@@ -15,6 +15,8 @@ To deal with the missing data, you have to FILL FORWARD, then FILL BACKWARD to r
 
 Run the script _fill-missing-values.py_.
 
+FAKE1 requires a FILL BACKWARD
+
 ### How to run (with example)
 
 1. `cd` into this subdirectory
