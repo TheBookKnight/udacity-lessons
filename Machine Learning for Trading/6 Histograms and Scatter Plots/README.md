@@ -9,6 +9,12 @@ When Kurtosis is positive or negative...
 * = skinny tails
   ![alt text](image.png)
 
+Interpreting Histograms...
+
+- XYZ has lower mean than SPY meaning lower return
+- XYZ has broader shoulders or larger standard deviations than SPY meaning higher volatility
+  ![alt text](image-1.png)
+
 ## Script to run create histograms and scatter plots
 
 Run the script _plot-histograms.py_.
