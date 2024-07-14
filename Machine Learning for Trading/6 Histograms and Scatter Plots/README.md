@@ -2,6 +2,8 @@
 
 Learn about _kurtosis_, the tailness of distributions with histograms of daily returns.
 
+When Kurtosis is positive or negative...
+
 - = fat tails
 
 * = skinny tails
