@@ -9,10 +9,10 @@ Learn about _kurtosis_, the tailness of distributions with histograms of daily r
 
 ## Script to run create histograms and scatter plots
 
-Run the script _compute-global-stats.py_.
+Run the script _plot-histograms.py_.
 
 ### How to run (with example)
 
 1. `cd` into this subdirectory
 2. Run `pipenv install <LIBRARY>` to install script dependencies
-3. Run `pipenv run python compute-global-stats.py` to run script
+3. Run `pipenv run python plot-histograms.py` to run script

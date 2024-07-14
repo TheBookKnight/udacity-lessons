@@ -1,6 +1,7 @@
 """Plot a histogram"""
 
 import pandas as pd
+import matplotlib.pyplot as plt
 
 from utils.stock import get_data, plot_data
 
@@ -22,11 +23,10 @@ def test_run():
 
     # Compute daily returns
     daily_returns = compute_daily_returns(df)
-    plot_data(daily_returns, title="Daily Returns",
-              ylabel="Daily Returns", xlabel="Price")
 
     # Plot a histogram
-    daily_returns.hist()
+    daily_returns.hist(bins=20)
+    plt.show()
 
 
 test_run()
