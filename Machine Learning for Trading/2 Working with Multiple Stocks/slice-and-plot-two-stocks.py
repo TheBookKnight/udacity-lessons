@@ -6,13 +6,8 @@ import matplotlib.pyplot as plt
 
 def plot_selected(df, columns, start_index, end_index):
     """Plot the desired columns over index values in the given range."""
-    # Setup date range
-    dates = pd.date_range(start_index, end_index)
-    # Get stock data
-    df = get_data(columns, dates)
     # Slice and plot
-    df = df.loc[start_index:end_index]
-    plot_data(df)
+    plot_data(df[columns].loc[start_index:end_index])
 
 def symbol_to_path(symbol, base_dir="data"):
     """Return CSV file path given ticker symbol."""

@@ -21,7 +21,7 @@ def test_run():
                         usecols=['Date', 'Adj Close'],
                         # identify which values are Not A Number, they are NaN
                         na_values=['nan']
-                        )
+                    )
 
     # Join the two dataframes using DataFrame.join()
     # we use an inner join process to drop NaN values because

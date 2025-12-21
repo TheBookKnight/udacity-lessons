@@ -1,32 +1,49 @@
 # Statistical Analysis of Time Series
 
-## Script to run stat analysis
+This directory demonstrates key statistical techniques for analyzing stock price data.
 
-Run the script _compute-global-stats.py_.
+## Scripts
 
-### How to run (with example)
+### compute-global-stats.py
+Computes **global statistics** (mean, median, standard deviation) across the entire time period for multiple stocks. Useful for understanding overall performance and volatility.
+
+### compute-rolling-statistics.py
+Calculates and plots the **rolling mean** (moving average) using a 20-day window. This smooths out short-term price fluctuations to reveal trends.
+
+### compute-bollinger-bands.py
+Generates **Bollinger Bands**—upper and lower bands representing ±2 standard deviations from the rolling mean. These identify overbought/oversold conditions for potential trading signals.
+
+### compute-daily-returns.py
+Computes **daily returns** (percentage change day-over-day) using `pct_change()`. This normalizes price movements across different stocks, making them comparable regardless of absolute price.
+
+## How to Run
 
 1. `cd` into this subdirectory
-2. Run `pipenv install <LIBRARY>` to install script dependencies
-3. Run `pipenv run python compute-global-stats.py` to run script
+2. Run `uv sync` to install dependencies
+3. Run any script: `uv run <script-name>.py`
 
-## Statistical Analysis Terms
+## Key Concepts
 
 ### Rolling Mean
-
-The **Rolling Mean** is the moving average over a window of time.
+The **rolling mean** is a moving average calculated over a sliding window (e.g., 20 days). It smooths price data to identify trends.
 
 ![alt text](image-1.png)
 
 ### Bollinger Bands
+**Bollinger Bands** consist of:
+- Rolling mean (center line)
+- Upper band (mean + 2 standard deviations)
+- Lower band (mean - 2 standard deviations)
 
-The **Bollinger Bands** help know if the deviation from the rolling mean is significant enough for a trading signal.
+Trading signals:
+- Price touches **lower band** → potential buy signal (oversold)
+- Price touches **upper band** → potential sell signal (overbought)
 
-You create two curves, one that's two standard devs ABOVE the rolling mean, and another that's two standards BELOW.
+![alt text](image.png)
 
-If the stock price intersects with the
+### Daily Returns
+**Daily returns** measure the percentage change in price from one day to the next:
 
-- BELOW curve, it's the best time to buy
-- ABOVE curve, it's the best time to sell
+$$\text{Daily Return}_t = \frac{\text{Price}_t - \text{Price}_{t-1}}{\text{Price}_{t-1}}$$
 
-  ![alt text](image.png)
+This allows comparing stocks with different price ranges (e.g., a \$10 stock vs a \$1000 stock).

@@ -1,14 +1,21 @@
 # Working with Multiple Stocks
 
+**Prerequisites to run this:**
+1. `cd` into this subdirectory
+2. Run `uv sync` to install script dependencies
+
 ## Plotting multiple stocks
 
-To see how to plot multiple stocks, use the _plotting-stocks.py_.
+With the _plotting-stocks.py_, this shows how to align multiple stocks to a common trading calendar and to clean the data (of NaN values).
 
-### How to run
+### How to run *plotting-stocks.py*
 
-1. `cd` into this subdirectory
-2. Run `pipenv install <LIBRARY>` to install script dependencies
-3. Run `pipenv run python plotting-stocks.py` to run script
+Run `uv run plotting-stocks.py` to run script
+
+## How to run *slice-and-plot-two-stocks.py*
+
+Run `uv run slice-and-plot-stokcs.py` to run script
+
 
 ## Where to Get Stock Data
 

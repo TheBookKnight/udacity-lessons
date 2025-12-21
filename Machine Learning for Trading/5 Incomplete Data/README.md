@@ -1,28 +1,33 @@
 # Incomplete Data
 
-The data isn't perfect because the stock data can be from many resources. Data can go missing for many reasons.
+Stock data often has missing values (NaN) for various reasons:
+- Companies getting acquired
+- Ticker symbol changes
+- Data source gaps
+- Non-trading days for specific stocks
 
-Examples:
+## Handling Missing Data
 
-1. Company gets acquired
-2. Ticker changes
+The proper strategy is a **two-step fill**:
 
-To deal with the missing data, you have to FILL FORWARD, then FILL BACKWARD to reduce peeking into the future.
+1. **Forward fill (`ffill`)** - Propagate the last known value forward
+2. **Backward fill (`bfill`)** - Fill any remaining gaps at the beginning with the next known value
+
+This order is critical: forward-filling first avoids "peeking into the future" since you're only using historical data. Backward fill only catches gaps at the very start of the dataset where no previous value exists.
 
 ![alt text](image.png)
 
-## Script to deal with missing data
+## Script
 
-Run the script _fill-missing-values.py_.
+[fill-missing-values.py](fill-missing-values.py) demonstrates this technique using:
+- **ORCL** (Oracle) - real stock data as reference
+- **FAKE1** - has missing data at the start (requires backward fill)
+- **FAKE2** - has missing data in the middle (requires forward fill)
 
-FAKE1 requires a FILL BACKWARD
-
-### How to run (with example)
+### How to Run
 
 1. `cd` into this subdirectory
-2. Run `pipenv install <LIBRARY>` to install script dependencies
-3. Run `pipenv run python fill-missing-values.py` to run script
+2. Run `uv sync` to install dependencies
+3. Run `uv run fill-missing-values.py` to run script
 
-## Read CSV
-
-To read the CSV file, use the _read-csv.py_ and the stock data file _JAVA.csv_ (downloaded from [JAVA data history](https://finance.yahoo.com/quote/JAVA/history)).
+The output plot shows how both synthetic datasets get properly filled to align with ORCL's trading calendar.

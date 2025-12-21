@@ -1,35 +1,60 @@
 # Histograms and Scatter Plots
 
-Learn about _kurtosis_, the tailness of distributions with histograms of daily returns.
+This directory demonstrates statistical visualization of stock returns using histograms to analyze distribution characteristics.
 
-When Kurtosis is positive or negative...
+## Scripts
 
-- = fat tails
+### plot-histograms.py
+Plots a histogram of SPY daily returns with:
+- Mean (white dashed line)
+- ±1 standard deviation (red dashed lines)
+- **Kurtosis** calculation
 
-* = skinny tails
-  ![alt text](image.png)
+### plot-two-histograms.py
+Compares two stocks (SPY and XOM) by overlaying their daily return histograms on the same chart.
 
-Interpreting Histograms...
+### utils/stock.py
+Utility module with helper functions:
+- `get_data()` - Load stock data from CSV
+- `plot_data()` - Create matplotlib plots
+- `symbol_to_path()` - Convert ticker to file path
 
-- XYZ has lower mean than SPY meaning lower return
-- XYZ has broader shoulders or larger standard deviations than SPY meaning higher volatility
-  ![alt text](image-1.png)
-
-Interpreting Scatter plots...
-
-- Beta (the slope) shows how reactive is the stock to the market. For example, on average...
-  - If Beta is one, then if the market goes up 1%, the stock goes up 1%
-  - If Beta is two, then if the market goes up 1%, the stock goes up 1%
-- Alpha (vertical line intercepts the vertical axis) if positive, means on average, the stock is performing better than the market.
-
-![alt text](image-2.png)
-
-## Script to run create histograms and scatter plots
-
-Run the script _plot-histograms.py_.
-
-### How to run (with example)
+## How to Run
 
 1. `cd` into this subdirectory
-2. Run `pipenv install <LIBRARY>` to install script dependencies
-3. Run `pipenv run python plot-histograms.py` to run script
+2. Run `uv sync` to install dependencies
+3. Run `uv run plot-histograms.py` or `uv run plot-two-histograms.py`
+
+## Key Concepts
+
+### Kurtosis
+**Kurtosis** measures the "tailedness" of a distribution:
+- **Positive kurtosis** = fat tails (more extreme events than normal distribution)
+- **Negative kurtosis** = thin tails (fewer extreme events)
+- **Zero** = normal distribution
+
+![alt text](image.png)
+
+### Interpreting Histograms
+Comparing two stocks' daily return distributions:
+- **Mean** (center) → average return
+- **Standard deviation** (width) → volatility
+- **Broader distribution** = higher volatility/risk
+
+Example: If XYZ has lower mean than SPY → lower returns; broader shoulders → higher volatility
+
+![alt text](image-1.png)
+
+### Scatter Plots & Linear Regression
+When plotting stock returns vs market returns (SPY):
+
+**Beta (slope):**
+- Beta = 1 → if market moves 1%, stock moves 1%
+- Beta = 2 → if market moves 1%, stock moves 2% (more volatile)
+- Beta = 0.5 → if market moves 1%, stock moves 0.5% (less volatile)
+
+**Alpha (y-intercept):**
+- Alpha > 0 → stock outperforms the market on average
+- Alpha < 0 → stock underperforms the market on average
+
+![alt text](image-2.png)
